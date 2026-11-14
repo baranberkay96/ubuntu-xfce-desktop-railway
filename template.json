@@ -1,0 +1,85 @@
+{
+  "name": "Ubuntu 26.04 XFCE Linux Desktop in Your Browser",
+  "description": "Full Ubuntu 26.04 desktop in a browser tab with a persistent home and apps.",
+  "category": "Other",
+  "tags": [
+    "ubuntu",
+    "linux-desktop",
+    "xfce",
+    "remote-desktop",
+    "webtop",
+    "selkies",
+    "chromium",
+    "browser"
+  ],
+  "image": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/ubuntu-linux.svg",
+  "upstream": {
+    "repo": "linuxserver/docker-webtop",
+    "branch": "ubuntu-xfce",
+    "version": "ubuntu-xfce-76362218-ls10",
+    "image": "lscr.io/linuxserver/webtop:ubuntu-xfce-76362218-ls10@sha256:14fa1ceb750d4bf9e0880cb7e7b6a535f6f9210762a59ff992ef17e3375d48c0",
+    "base": "baseimage-selkies:ubunturesolute",
+    "checked": "2026-11-12"
+  },
+  "services": {
+    "Desktop": {
+      "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/ubuntu-linux.svg",
+      "source": {
+        "repo": "baranberkay96/ubuntu-xfce-desktop-railway",
+        "rootDirectory": "/services/desktop"
+      },
+      "startCommand": null,
+      "preDeployCommand": null,
+      "healthcheckPath": "/healthz",
+      "healthcheckTimeout": 600,
+      "restartPolicyType": "ON_FAILURE",
+      "restartPolicyMaxRetries": 10,
+      "numReplicas": 1,
+      "cronSchedule": null,
+      "publicDomain": true,
+      "targetPort": 3000,
+      "tcpProxy": null,
+      "volume": {
+        "mountPath": "/config"
+      },
+      "variables": {
+        "PASSWORD": {
+          "defaultValue": "${{secret(32)}}",
+          "description": "Browser login password, generated at deploy (copy it from this variable). Min 8 chars, 12+ recommended. Without a valid one the login stays locked.",
+          "required": false
+        },
+        "CUSTOM_USER": {
+          "defaultValue": "ubuntu",
+          "description": "Browser login name (letters, digits, . _ @ -). The Linux account inside the desktop is 'abc', with passwordless sudo.",
+          "required": false
+        },
+        "PORT": {
+          "defaultValue": "3000",
+          "description": "Port of the desktop's web server (nginx). The public domain and the healthcheck use it. 3001 and 8082 are used internally.",
+          "required": false
+        },
+        "TZ": {
+          "defaultValue": "Etc/UTC",
+          "description": "Time zone of the desktop clock and apps, e.g. Europe/Istanbul.",
+          "required": false
+        },
+        "TITLE": {
+          "defaultValue": "Ubuntu 26.04 XFCE Desktop",
+          "description": "Browser tab title of the desktop page.",
+          "required": false
+        },
+        "APT_PACKAGES": {
+          "defaultValue": "",
+          "description": "Optional. Distribution packages (space-separated) reinstalled in the background after every redeploy, e.g. 'gimp vlc'.",
+          "required": false
+        },
+        "RAILWAY_DEPLOYMENT_DRAINING_SECONDS": {
+          "defaultValue": "15",
+          "description": "Seconds between stop signal and kill on redeploy, so desktop apps and services shut down cleanly.",
+          "required": false
+        }
+      }
+    }
+  },
+  "buckets": []
+}
