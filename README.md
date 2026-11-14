@@ -34,7 +34,7 @@ A browser desktop needs a display server, a desktop session, a streaming server,
 |---|---|---|---|
 | Desktop | XFCE desktop session (X11), D-Bus, audio, Selkies (loopback only), nginx (login, `/healthz`), all supervised by s6 | `/config` | 3000 (public HTTPS domain) |
 
-**Plan:** PLAN_PLACEHOLDER
+**Plan:** Measured on Railway: about 0.3 GB of RAM at idle before a browser connects; a connected session and Chromium add to that. Trial's 1 GB per service runs the desktop, but Chromium with several tabs needs Hobby and 2 GB or more. Free's 0.5 GB is too small for a session.
 
 **First login**
 
