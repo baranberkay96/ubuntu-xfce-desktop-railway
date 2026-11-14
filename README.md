@@ -1,6 +1,6 @@
 # Deploy and Host Ubuntu 26.04 XFCE Desktop with Railway
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/PLACEHOLDER?referralCode=20H68q)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/ubuntu-2604-xfce-linux-desktop-in-your-b?referralCode=20H68q)
 
 A full Ubuntu 26.04 LTS desktop with XFCE that you open in a browser tab. It comes with Chromium, the Thunar file manager, a terminal, a text editor, a PDF viewer and an archive manager. A generated password protects it, and your home directory (files, settings, browser profile) lives on a persistent volume.
 
