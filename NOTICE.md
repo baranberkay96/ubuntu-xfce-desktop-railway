@@ -2,7 +2,7 @@
 
 ## Base image and its components
 
-The service is built `FROM lscr.io/linuxserver/webtop:ubuntu-xfce-76362218-ls10@sha256:14fa1ceb750d4bf9e0880cb7e7b6a535f6f9210762a59ff992ef17e3375d48c0` (built 2026-11-08). The image is used as published by linuxserver.io. This repository contains no copy of its source files.
+The service is built `FROM ghcr.io/linuxserver/webtop:ubuntu-xfce-76362218-ls10@sha256:14fa1ceb750d4bf9e0880cb7e7b6a535f6f9210762a59ff992ef17e3375d48c0` (built 2026-11-08). The image is used as published by linuxserver.io. This repository contains no copy of its source files.
 
 | Component | Source | License | How it is used |
 |---|---|---|---|

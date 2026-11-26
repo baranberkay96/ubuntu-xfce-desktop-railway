@@ -7,7 +7,9 @@
 # The digest is the multi-arch index, identical on lscr.io, ghcr.io and
 # Docker Hub. To upgrade, replace tag and digest together with a newer
 # "ubuntu-xfce-<hash>-ls<n>" release and redeploy.
-FROM lscr.io/linuxserver/webtop:ubuntu-xfce-76362218-ls10@sha256:14fa1ceb750d4bf9e0880cb7e7b6a535f6f9210762a59ff992ef17e3375d48c0
+# Pulled from ghcr.io directly: lscr.io only redirects there, and a failed
+# redirect fails the whole build at this step.
+FROM ghcr.io/linuxserver/webtop:ubuntu-xfce-76362218-ls10@sha256:14fa1ceb750d4bf9e0880cb7e7b6a535f6f9210762a59ff992ef17e3375d48c0
 
 # Image defaults for Railway. Variables set on the Railway service win.
 #  - PUID/PGID 1000: fixed owner of the /config volume. Do not change them
